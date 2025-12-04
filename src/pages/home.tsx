@@ -102,7 +102,7 @@ export function Home() {
         <form className="search-box" onSubmit={handleSearch}>
           <input
             onChange={(e) => setBusca(e.target.value)}
-            placeholder="Digite o nome do livro..."
+            placeholder="Qual o seu destino"
             type="text"
             value={busca}
           />
