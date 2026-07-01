@@ -110,7 +110,7 @@ export function Home() {
             {carregando ? 'Buscando...' : 'Buscar'}
           </button>
         </form>
-        <a href="com.br.smiles://detalhes-hotel?hotelId=120404&checkin=2026-08-12&checkout=2026-08-14&adults=4&children=2&childrenAges=8,12">Abrir hotel</a> 
+        <a href="com.br.smiles://detalhes-hotel?hotelId=120404&checkin=2026-08-12&checkout=2026-08-14&adults=2&children=0">Abrir hotel 1</a> 
       </header>
 
       <main>
