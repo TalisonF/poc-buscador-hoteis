@@ -94,6 +94,27 @@ export function Home() {
     return value;
   };
 
+  const handleOpenApp = () => {
+    const appUri = "com.br.smiles://detalhes-hotel?hotelId=120404&checkin=2026-08-12&checkout=2026-08-14&adults=2&children=0";
+    const storeUrl = "https://www.smiles.com.br/mfe/hoteis/detalhes?name=ibis+Belo+Horizonte+Savassi&checkin=2026-08-12&checkout=2026-08-14&rooms=2&hotel=120404"; // Ou App Store
+
+    // 1. Tenta abrir o app alterando o local da janela
+    window.location.href = appUri;
+
+    // 2. Cria um timer. Se em 2 segundos a página continuar aberta e focada, 
+    // significa que o app provavelmente não abriu (não está instalado).
+    const start = Date.now();
+    setTimeout(() => {
+      // Se o usuário mudou de tela (o app abriu), o tempo decorrido no timer 
+      // vai parecer muito maior ou o documento estará oculto.
+      if (document.hidden || Date.now() - start > 2500) {
+        return; // O app abriu com sucesso
+      }
+      
+      // Se continuou aqui, joga o usuário para a loja
+      window.location.href = storeUrl;
+    }, 2000);
+  };
   return (
     <div className="container">
       <header>
@@ -110,7 +131,9 @@ export function Home() {
             {carregando ? 'Buscando...' : 'Buscar'}
           </button>
         </form>
-        <a href="com.br.smiles://detalhes-hotel?hotelId=120404&checkin=2026-08-12&checkout=2026-08-14&adults=2&children=0">Abrir hotel 1</a> 
+        <button onClick={handleOpenApp}>
+      Abrir no Aplicativo
+    </button>
       </header>
 
       <main>
